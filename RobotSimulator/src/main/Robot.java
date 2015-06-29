@@ -15,11 +15,22 @@ public class Robot {
 	}
 	private int x;
 	private int y;
-	
-	private Facing facing;
+	private boolean placed;
 	
 	public Robot(){
+		placed = false;
+		facing = Facing.UNKNOWN;
 	}
+	
+	public boolean isPlaced() {
+		return placed;
+	}
+	public void setPlaced(boolean placed) {
+		this.placed = placed;
+	}
+
+	private Facing facing;
+	
 	public int getX() {
 		return x;
 	}
