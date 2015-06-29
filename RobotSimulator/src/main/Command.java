@@ -1,17 +1,9 @@
 package main;
 
 public abstract class Command {
-	protected String name;
+	protected String commandString;
+
+	public abstract boolean parse(String commandString);
 	
-	public final String getName() {
-		return name;
-	}
-	
-	public final void setName(String name) {
-		this.name = name;
-	}
-	
-	public abstract boolean parse();
-	
-	public abstract String execute(Robot robot);
+	public abstract String execute(Robot robot, Table table);
 }
