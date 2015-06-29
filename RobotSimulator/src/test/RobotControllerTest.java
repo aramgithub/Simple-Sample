@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import main.RobotController;
-import main.Robot.Facing;
 import main.Table;
 
 public class RobotControllerTest {
@@ -15,31 +14,31 @@ public class RobotControllerTest {
 		Table table = new Table(5, 5);
 		RobotController robotController = new RobotController(table);
 		String actual;
-		actual = robotController.report();
+		actual = robotController.execute("REPORT");
 		assertEquals("Not placed yet!\n", actual);
 		
-		robotController.place(0,  0, Facing.NORTH);
-		actual = robotController.report();
+		robotController.execute("PLACE 0,0,NORTH");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,0,NORTH\n", actual);
 		
-		robotController.forward();
-		actual = robotController.report();
+		robotController.execute("FORWARD");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,NORTH\n", actual);
 		
-		robotController.turnLeft();
-		actual = robotController.report();
+		robotController.execute("LEFT");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,WEST\n", actual);
 		
-		robotController.forward();
-		actual = robotController.report();
+		robotController.execute("FORWARD");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,WEST\n", actual);
 		
-		robotController.turnRight();
-		actual = robotController.report();
+		robotController.execute("RIGHT");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,NORTH\n", actual);
 		
-		robotController.turnRight();
-		actual = robotController.report();
+		robotController.execute("RIGHT");
+		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,EAST\n", actual);
 	}
 
