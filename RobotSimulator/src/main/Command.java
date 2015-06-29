@@ -13,5 +13,5 @@ public abstract class Command {
 	
 	public abstract boolean parse();
 	
-	public abstract void execute(Robot robot);
+	public abstract String execute(Robot robot);
 }
