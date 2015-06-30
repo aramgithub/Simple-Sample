@@ -20,12 +20,12 @@ public class RobotController {
 		
 		CommandFactory commandFactory = new CommandFactory();
 		Command command = commandFactory.getCommand(commandString.split(" ")[0]);
-		if (command.parse(commandString) == true) {
+		if (command != null){
+			if (command.parse(commandString) == true) {
 			return command.execute(robot, table);
+			}
 		}
-		else{
-		return "";
-		}
+		return "";		
 	}
 }
 
