@@ -28,7 +28,7 @@ public class Forward extends Command {
             break;
           case WEST:
          	if (robot.getX() > 0){
-                robot.setX(robot.getX() + 1);
+                robot.setX(robot.getX() - 1);
             }
             break;
         default:
