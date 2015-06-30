@@ -2,8 +2,9 @@ package main;
 
 /**
  * 
- * @author Aram Zaerpour <aram.zaerpour@gmail.com>
- * @version 1.0
+ * @author aram
+ * applies the commands to the robot depending on the entered command
+ * 
  */
 
 public class RobotController {

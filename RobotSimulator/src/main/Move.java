@@ -1,5 +1,10 @@
 package main;
 
+/**
+ * 
+ * @author aram
+ *a subclass of command to simulate robot movement
+ */
 public class Move extends Command {
 
 	@Override

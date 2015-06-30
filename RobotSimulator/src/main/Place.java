@@ -3,6 +3,11 @@ package main;
 import main.Robot;
 import main.Robot.Facing;
 
+/**
+ * 
+ * @author aram
+ *a subclass of Command class which put the robot in desired place
+ */
 public class Place extends Command {
 
 	private int x;

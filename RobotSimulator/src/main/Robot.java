@@ -3,7 +3,7 @@ package main;
 /**
 *
 * @author aram
-* The Car class holds data related to car position and direction.
+* The Robot class holds the data related to robot position and direction.
 */
 public class Robot {
 	public enum Facing{
