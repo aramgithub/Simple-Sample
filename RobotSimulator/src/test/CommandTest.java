@@ -20,33 +20,57 @@ public class CommandTest {
 		Table table = new Table(5, 5);
 		String actual = "";
 		
-		Command command = new Place();
-		command.parse("PLACE 1,1,NORTH");
-		command.execute(robot, table);
+		Command place = new Place();
+		if(place.parse("PLACE 1,1,NORTH"))
+			place.execute(robot, table);
 		
 		Command report = new Report();
-		report.parse("REPORT");
-		actual = report.execute(robot, table);
+		if( report.parse("REPORT"))
+			actual = report.execute(robot, table);
 		assertEquals("OUTPUT: 1,1,NORTH\n", actual);
 		
 		Command move = new Move();
-		report.parse("MOVE");
-		move.execute(robot, table);
+		if(move.parse("MOVE"))
+			move.execute(robot, table);
 		actual = report.execute(robot, table);		
 		assertEquals("OUTPUT: 1,2,NORTH\n", actual);
 
 		Command turnLeft = new TurnLeft();
-		report.parse("LEFT");
-		turnLeft.execute(robot, table);
+		turnLeft.execute(robot, table);	
 		actual = report.execute(robot, table);		
 		assertEquals("OUTPUT: 1,2,WEST\n", actual);
 		
-		Command turnRight = new TurnRight();
-		report.parse("RIGHT");
-		turnRight.execute(robot, table);
+		move.execute(robot, table);
 		actual = report.execute(robot, table);
-		assertEquals("OUTPUT: 1,2,NORTH\n", actual);
+		assertEquals("OUTPUT: 0,2,WEST\n", actual);
+
+		turnLeft.execute(robot, table);
 		
-}
+		move.execute(robot, table);
+		
+		turnLeft.execute(robot, table);
+		
+		move.execute(robot, table);
+		actual = report.execute(robot, table);
+		assertEquals("OUTPUT: 1,1,EAST\n", actual);
+		
+		if(place.parse("PLACE 4,4,EAST"))
+			place.execute(robot, table);
+		turnLeft.execute(robot, table);
+		actual = report.execute(robot, table);
+		assertEquals("OUTPUT: 4,4,NORTH\n", actual);
+	
+		if(place.parse("PLACE 4,0,EAST"))
+			place.execute(robot, table);
+		move.execute(robot, table);
+		Command turnRight = new TurnRight();
+		if(turnRight.parse("RIGHT")){
+			turnRight.execute(robot, table);
+			turnRight.execute(robot, table);
+		}
+		actual = report.execute(robot, table);
+		assertEquals("OUTPUT: 4,0,WEST\n", actual);
+	
+	}
 
 }
