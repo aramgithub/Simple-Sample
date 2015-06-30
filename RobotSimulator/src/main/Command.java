@@ -1,9 +1,9 @@
 package main;
 
 /**
- * 
- * @author aram
  * An abstract class which applicable commands should inherit
+ * @author aram
+ * 
  */
 
 public abstract class Command {

@@ -2,10 +2,10 @@ package main;
 
 import main.Robot.Facing;
 /**
- * 
+ *As a subclass of Command class rotates the robot 90 degrees
+ *counter-clockwise 
  * @author aram
- *as a subclass of Command class rotates the robot 90 degrees
- * clockwise
+ *
  */
 
 public class TurnRight extends Command {

@@ -4,9 +4,9 @@ import main.Robot;
 import main.Robot.Facing;
 
 /**
- * 
+ *A subclass of Command class which put the robot in desired place 
  * @author aram
- *a subclass of Command class which put the robot in desired place
+ *
  */
 public class Place extends Command {
 

@@ -2,10 +2,10 @@ package main;
 
 import main.Robot.Facing;
 /**
- * 
+ * As a subclass of Command class gives the current position and direction
+ * of the robot 
  * @author aram
- *as a subclass of Command class gives the current position and direction
- * of the robot
+ *
  */
 
 public class Report extends Command {

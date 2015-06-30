@@ -1,9 +1,9 @@
 package main;
 
 /**
- * 
- * @author aram
  * Holds the specifications of the table
+ * @author aram
+ * 
  */
 public class Table {
 	private int xUnit;

@@ -8,7 +8,7 @@ import java.io.OutputStream;
 
 
 /**
- * 
+ * The main class of the Robot Simulator Project
  * @author Aram Zaerpour <aram.zaerpour@gmail.com>
  * @version 1.0
  * 

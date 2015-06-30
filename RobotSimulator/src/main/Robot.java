@@ -1,9 +1,9 @@
 package main;
 
 /**
-*
+*The Robot class holds the data related to robot position and direction.
 * @author aram
-* The Robot class holds the data related to robot position and direction.
+* 
 */
 public class Robot {
 	public enum Facing{

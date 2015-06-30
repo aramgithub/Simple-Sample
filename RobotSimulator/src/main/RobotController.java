@@ -1,9 +1,9 @@
 package main;
 
 /**
+ * Applies the commands to the robot depending on the entered command
  * 
  * @author aram
- * applies the commands to the robot depending on the entered command
  * 
  */
 

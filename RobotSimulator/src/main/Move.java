@@ -1,9 +1,9 @@
 package main;
 
 /**
- * 
+ *A subclass of command to simulate robot movement 
  * @author aram
- *a subclass of command to simulate robot movement
+ *
  */
 public class Move extends Command {
 

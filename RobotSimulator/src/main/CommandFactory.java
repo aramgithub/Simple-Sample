@@ -1,9 +1,9 @@
 package main;
 
 /**
- * 
- * @author aram
  * A factory to give concrete command objects
+ * @author aram
+ * 
  *
  */
 
