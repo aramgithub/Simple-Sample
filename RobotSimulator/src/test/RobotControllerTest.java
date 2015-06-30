@@ -21,7 +21,7 @@ public class RobotControllerTest {
 		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,0,NORTH\n", actual);
 		
-		robotController.execute("FORWARD");
+		robotController.execute("MOVE");
 		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,NORTH\n", actual);
 		
@@ -29,7 +29,7 @@ public class RobotControllerTest {
 		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,WEST\n", actual);
 		
-		robotController.execute("FORWARD");
+		robotController.execute("MOVE");
 		actual = robotController.execute("REPORT");
 		assertEquals("OUTPUT: 0,1,WEST\n", actual);
 		
