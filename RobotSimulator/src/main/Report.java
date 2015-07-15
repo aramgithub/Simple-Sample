@@ -1,5 +1,8 @@
 package main;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import main.Robot.Facing;
 /**
  * As a subclass of Command class gives the current position and direction
@@ -30,8 +33,24 @@ public class Report extends Command {
 			return "Not placed yet!\n";
 		}
 	}
+	
+	private Map<Facing, String> facingString;
+	
+	public Report(){
+		super();
+		facingString = new HashMap<Facing, String>();
+		facingString.put(Facing.NORTH, "NORTH");
+		facingString.put(Facing.SOUTH, "SOUTH");
+		facingString.put(Facing.EAST, "EAST");
+		facingString.put(Facing.WEST, "WEST");
+	}
+	
 	public String facingToString(Facing facing){
-	    String facingString ="";
+		
+		//a Hashmap for better performance and readability
+		return facingString.get(facing);
+	  
+		/*  String facingString ="";
 	    switch (facing){
 	        case NORTH:
 	            facingString = "NORTH";
@@ -48,6 +67,6 @@ public class Report extends Command {
 	        default:
 	            break;
 	    }
-	    return facingString;
+	    return facingString;*/
 	}
 }
