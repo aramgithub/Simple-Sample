@@ -9,6 +9,6 @@ public class PaySlipTest {
 	
 	@Test
 	public void testIsInputValid(){
-		assertFalse(paySlip.isInputValid(""));
+		assertFalse(paySlip.isEmployeeDetails(""));
 	}
 }
