@@ -17,6 +17,6 @@ public class PaySlipTest {
 	}
 	@Test
 	public void testDoAllPartsHaveValue(){
-		assertFalse(paySlip.validateEmployeeDetails("David,Rudd,60050,,01 March – 31 March"));
+		assertFalse(paySlip.validateEmployeeDetails(",Rudd,60050,,01 March – 31 March"));
 	}
 }
