@@ -15,4 +15,8 @@ public class PaySlipTest {
 	public void testIsCommaSeparatedValid(){
 		assertTrue(paySlip.validateEmployeeDetails("David,Rudd,60050,9%,01 March – 31 March"));
 	}
+	@Test
+	public void testDoAllPartsHaveValue(){
+		assertFalse(paySlip.validateEmployeeDetails("David,Rudd,60050,,01 March – 31 March"));
+	}
 }
