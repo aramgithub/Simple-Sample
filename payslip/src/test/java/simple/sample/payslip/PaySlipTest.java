@@ -19,4 +19,17 @@ public class PaySlipTest {
 	public void testDoAllPartsHaveValue(){
 		assertFalse(paySlip.validateEmployeeDetails(",Rudd,60050,,01 March – 31 March"));
 	}
+	@Test
+	public void testIsSalaryValid(){
+		assertFalse(paySlip.validateEmployeeDetails("David,Rudd,-60050,9%,01 March – 31 March"));
+	}
+	
+	@Test
+	public void testIsSuperRateValid(){
+		assertFalse(paySlip.validateEmployeeDetails("David,Rudd,60050,9,01 March – 31 March"));
+	}
+	@Test
+	public void testIsSuperRateInRange(){
+		assertFalse(paySlip.validateEmployeeDetails("David,Rudd,60050,65%,01 March – 31 March"));
+	}
 }
