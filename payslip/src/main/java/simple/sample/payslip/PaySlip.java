@@ -2,8 +2,10 @@ package simple.sample.payslip;
 
 public class PaySlip {
 	
+	private String fullname;
 	private int salary;
 	private int superRate;
+	private String paymentStartDate;
 	public boolean validateEmployeeDetails(String input){
 		String[] details = input.split(",");
 		if (details.length != 5)
@@ -17,6 +19,8 @@ public class PaySlip {
 		if (nonEmpty == false){
 			return nonEmpty;		
 		}
+		fullname = details[0] + " " + details[1];
+		paymentStartDate = details[4];
 		if (details[2].matches("[0-9]+")){
 			salary = Integer.parseInt(details[2]);
 		}
