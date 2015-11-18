@@ -1,7 +1,8 @@
 package simple.sample.payslip;
 
 public class PaySlip {
-	public boolean isEmployeeDetails(String input){
-		return false;
+	public boolean validateEmployeeDetails(String input){
+		String[] details = input.split(",");
+		return (details.length == 5);
 	}
 }

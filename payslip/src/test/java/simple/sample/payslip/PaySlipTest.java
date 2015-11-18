@@ -8,7 +8,11 @@ public class PaySlipTest {
 	PaySlip paySlip = new PaySlip();
 	
 	@Test
-	public void testIsInputValid(){
-		assertFalse(paySlip.isEmployeeDetails(""));
+	public void testIsEmptyInputValid(){
+		assertFalse(paySlip.validateEmployeeDetails(""));
+	}
+	@Test
+	public void testIsCommaSeparatedValid(){
+		assertTrue(paySlip.validateEmployeeDetails("David,Rudd,60050,9%,01 March – 31 March"));
 	}
 }
