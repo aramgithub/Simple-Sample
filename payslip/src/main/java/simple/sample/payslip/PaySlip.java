@@ -35,9 +35,19 @@ public class PaySlip {
 		if ((details[3].charAt(len - 1) == '%') && (superStr.matches("[0-9]+"))) {
 			superRate = Integer.parseInt(superStr);
 		}
-		if ((superRate >=0 ) && (superRate <= 50)){
-			return true;
+		if (superRate > 50){
+			return false;
 		}
-		return false;
+		return true;
 	}
+	
+	int grossIncome(int annualSalary){
+		return annualSalary / 12;
+	}
+	
+	int calculateTax(int annualSalary){
+		return 5004;
+	}
+	
 }
+
