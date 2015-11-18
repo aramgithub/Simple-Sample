@@ -5,7 +5,7 @@ public class PaySlip {
 	private String fullname;
 	private int salary;
 	private int superRate;
-	private String paymentStartDate;
+	private String payPeriod;
 	public boolean validateEmployeeDetails(String input){
 		String[] details = input.split(",");
 		if (details.length != 5)
@@ -20,7 +20,7 @@ public class PaySlip {
 			return nonEmpty;		
 		}
 		fullname = details[0] + " " + details[1];
-		paymentStartDate = details[4];
+		payPeriod = details[4];
 		if (details[2].matches("[0-9]+")){
 			salary = Integer.parseInt(details[2]);
 		}
@@ -41,11 +41,11 @@ public class PaySlip {
 		return true;
 	}
 	
-	int grossIncome(int annualSalary){
+	public int calculateGrossIncome(int annualSalary){
 		return (int)(annualSalary / 12 + 0.5);
 	}
 	
-	int calculateTax(int annualSalary){
+	public int calculateTax(int annualSalary){
 		if (annualSalary <= 18200){
 			return 0;
 		}
@@ -57,6 +57,26 @@ public class PaySlip {
 			return (int)((((annualSalary - 80000) * 0.37) + 17547) / 12 + 0.5);
 		}
 		return (int)((((annualSalary - 180000) * 0.45) + 54547) / 12 + 0.5);
+	}
+	
+	public String issuePaySlip(String input) {
+		if (validateEmployeeDetails(input) == false) {
+			return "Invalid input";
+		}
+		int grossIncome = calculateGrossIncome(salary);
+		int tax = calculateTax(salary);
+		int netIncome = grossIncome - tax;
+		int superValue = (int) ((grossIncome * superRate / 100) + 0.5);
+		
+		String paySlip = fullname + ","
+						 + payPeriod + ","
+						 + grossIncome + ","
+						 + tax + ","
+						 + netIncome + ","
+						 + superValue;
+		return paySlip;				 
+						
+	
 	}
 }
 

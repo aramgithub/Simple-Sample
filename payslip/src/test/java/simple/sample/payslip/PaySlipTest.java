@@ -1,7 +1,6 @@
 package simple.sample.payslip;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class PaySlipTest {
@@ -35,7 +34,7 @@ public class PaySlipTest {
 	
 	@Test
 	public void testGrossIncome(){
-		assertEquals(5004, paySlip.grossIncome(60050));
+		assertEquals(5004, paySlip.calculateGrossIncome(60050));
 	}
 	
 	@Test
@@ -60,6 +59,22 @@ public class PaySlipTest {
 	public void testCalculateTax200000(){
 		assertEquals(5296, paySlip.calculateTax(200000));
 	}
+	
+	@Test
+	public void testPaySlipInvalid(){
+		assertEquals("Invalid input", 
+					paySlip.issuePaySlip("David,,60050,9%,01 March – 31 March"));
+	}
+	
+	@Test
+	public void testPaySlipDavid(){
+		assertEquals("David Rudd,01 March – 31 March,5004,922,4082,450", 
+					paySlip.issuePaySlip("David,Rudd,60050,9%,01 March – 31 March"));
+	}
+	
+	@Test
+	public void testPaySlipRyan(){
+		assertEquals("Ryan Chen,01 March – 31 March,10000,2696,7304,1000", 
+					paySlip.issuePaySlip("Ryan,Chen,120000,10%,01 March – 31 March"));
+	}
 }
-
-
