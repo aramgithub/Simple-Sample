@@ -42,12 +42,21 @@ public class PaySlip {
 	}
 	
 	int grossIncome(int annualSalary){
-		return annualSalary / 12;
+		return (int)(annualSalary / 12 + 0.5);
 	}
 	
 	int calculateTax(int annualSalary){
-		return 5004;
+		if (annualSalary <= 18200){
+			return 0;
+		}
+		else if (annualSalary <= 37000){
+			return (int)(((annualSalary - 18200) * 0.19) / 12 + 0.5 );
+		}else if (annualSalary <= 80000){
+			return (int)((((annualSalary - 37000) * 0.325) + 3572) / 12 + 0.5);
+		}else if (annualSalary <= 180000){
+			return (int)((((annualSalary - 80000) * 0.37) + 17547) / 12 + 0.5);
+		}
+		return (int)((((annualSalary - 180000) * 0.45) + 54547) / 12 + 0.5);
 	}
-	
 }
 

@@ -39,7 +39,27 @@ public class PaySlipTest {
 	}
 	
 	@Test
-	public void testCalculateTax(){
-		assertEquals(5004, paySlip.calculateTax(60050));
+	public void testCalculateTax12000(){
+		assertEquals(0, paySlip.calculateTax(12000));
+	}
+	
+	@Test
+	public void testCalculateTax30000(){
+		assertEquals(187, paySlip.calculateTax(30000));
+	}
+	
+	@Test
+	public void testCalculateTax60050(){
+		assertEquals(922, paySlip.calculateTax(60050));
+	}
+	@Test
+	public void testCalculateTax120000(){
+		assertEquals(2696, paySlip.calculateTax(120000));
+	}
+	@Test
+	public void testCalculateTax200000(){
+		assertEquals(5296, paySlip.calculateTax(200000));
 	}
 }
+
+
