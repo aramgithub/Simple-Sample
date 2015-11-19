@@ -2,14 +2,14 @@ package simple.sample.payslip;
 
 public class PaySlip {
 	
-	private String fullname;
-	private int salary;
-	private int superRate;
-	private String payPeriod;
+	PaySlipData  paySlipData = new PaySlipData();
+	
 	public boolean validateEmployeeDetails(String input){
+		
 		String[] details = input.split(",");
 		if (details.length != 5)
 			return false;
+		
 		boolean nonEmpty = true;
 		for (int i = 0 ; (i < 5) && nonEmpty ; i ++) {
 			if (details[i].isEmpty()){
@@ -19,10 +19,16 @@ public class PaySlip {
 		if (nonEmpty == false){
 			return nonEmpty;		
 		}
-		fullname = details[0] + " " + details[1];
-		payPeriod = details[4];
+		
+		//fullname = details[0] + " " + details[1];
+		paySlipData.setFullname(details[0] + " " + details[1]);
+		
+		//payPeriod = details[4];
+		paySlipData.setPayPeriod(details[4]);
+		
 		if (details[2].matches("[0-9]+")){
-			salary = Integer.parseInt(details[2]);
+			//salary = Integer.parseInt(details[2]);
+			paySlipData.setSalary( Integer.parseInt(details[2]));
 		}
 		else{
 			return false;
@@ -32,10 +38,14 @@ public class PaySlip {
 			return false;
 		}
 		String superStr = details[3].substring(0, len - 1);
+		
 		if ((details[3].charAt(len - 1) == '%') && (superStr.matches("[0-9]+"))) {
-			superRate = Integer.parseInt(superStr);
+			//superRate = Integer.parseInt(superStr);
+			paySlipData.setSuperRate(Integer.parseInt(superStr));
 		}
-		if (superRate > 50){
+		
+		//if (superRate > 50){
+		if (paySlipData.getSuperRate() > 50){
 			return false;
 		}
 		return true;
@@ -63,17 +73,29 @@ public class PaySlip {
 		if (validateEmployeeDetails(input) == false) {
 			return "Invalid input";
 		}
-		int grossIncome = calculateGrossIncome(salary);
-		int tax = calculateTax(salary);
-		int netIncome = grossIncome - tax;
-		int superValue = (int) ((grossIncome * superRate / 100) + 0.5);
+		//int grossIncome = calculateGrossIncome(salary);
+		int grossIncome = calculateGrossIncome(paySlipData.getSalary());
 		
-		String paySlip = fullname + ","
+		//int tax = calculateTax(salary);
+		int tax = calculateTax(paySlipData.getSalary());
+		
+		int netIncome = grossIncome - tax;
+		
+		//int superValue = (int) ((grossIncome * superRate / 100) + 0.5);
+		int superValue = (int) ((grossIncome * paySlipData.getSuperRate() / 100) + 0.5);
+		
+		/*String paySlip = fullname + ","
 						 + payPeriod + ","
 						 + grossIncome + ","
 						 + tax + ","
 						 + netIncome + ","
-						 + superValue;
+						 + superValue;*/
+		String paySlip = paySlipData.getFullname() + ","
+					+ paySlipData.getPayPeriod() + ","
+					+ grossIncome + ","
+					+ tax + ","
+					+ netIncome + ","
+					+ superValue;
 		return paySlip;				 
 						
 	
